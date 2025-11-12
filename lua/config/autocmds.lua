@@ -16,3 +16,23 @@ vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave" }, {
   end,
   desc = "Autosave when losing focus or switching buffer",
 })
+
+-- Filetype-specific colorcolumn (vertical rulers)
+
+local function set_cc(col)
+  return function()
+    vim.opt_local.colorcolumn = tostring(col)
+  end
+end
+
+-- JavaScript / TypeScript / React
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+  callback = set_cc(100),
+})
+
+-- PHP
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "php",
+  callback = set_cc(120),
+})

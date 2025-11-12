@@ -1,19 +1,3 @@
--- return {
---   "nvim-lualine/lualine.nvim",
---   opts = {
---     sections = {
---       lualine_c = {},
---       lualine_z = {
---         {
---           "filetype",
---           colored = false,
---           icon_only = false,
---         },
---       },
---     },
---   },
--- }
---
 return {
   "nvim-lualine/lualine.nvim",
   opts = function(_, opts)
